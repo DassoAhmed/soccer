@@ -13,3 +13,21 @@ export const addNewPlayer = async (req, res) => {
         res.send(err)
     }
 }
+
+export const getPlayers = async (req,res) => {
+    try{
+       const players = await Player.find({})
+       res.json(players)
+    }catch (err) {
+        res.send(err)
+    }
+}
+
+export const getPlayerWithId = async (req, res) => {
+    try{
+       const player = await Player.findById(req.params.PlayerId)
+       res.json(player)
+    }catch (err) {
+        res.send(err)
+    }
+}
